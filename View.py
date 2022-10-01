@@ -1,6 +1,7 @@
 import pygame as pyg
 
 import Missions as msn
+import Station as st
 
 display_size = 1280, 720
 display = pyg.display.set_mode( display_size )
@@ -16,8 +17,15 @@ while run:
     for event in pyg.event.get():
         if event.type == pyg.QUIT:
             run  = False
+        elif event.type == pyg.MOUSEBUTTONDOWN:
+            st.buttons_click(pyg.mouse.get_pos())
 
-    missions = msn.start( display )
+    #carga las misiones
+    #missions = msn.start( display )
+
+    #carga la estacion espacial
+    station = st.start(display)
+    
 
     pyg.display.flip()
     clock.tick( fps )
