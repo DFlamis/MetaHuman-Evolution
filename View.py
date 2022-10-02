@@ -1,5 +1,5 @@
 import pygame as pyg
-import Station as st
+import station as st
 import Missions as msn
 
 display_size = 1280, 720

@@ -43,7 +43,7 @@ def mission_background( display, image_name ):
 
 def set_text( display, conditions ):
     mission_name = 'First Mission'
-    mission_description = 'Search some minerals for improving your equipment in a partially'
+    mission_description = 'Search some minerals for improving your equipment'
     planet_name = 'Planet name: ZaiDek'
     planet_description = 'Planet conditions:'
 
