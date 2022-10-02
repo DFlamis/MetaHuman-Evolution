@@ -1,5 +1,5 @@
 import pygame as pyg
-import station as st
+import Station as st
 import Missions as msn
 import Abilty as ab
 
