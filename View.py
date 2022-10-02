@@ -10,6 +10,8 @@ pyg.display.set_caption('Nasa Space App challenges - MetaHuman Evolution')
 
 fps = 60
 
+the_number = 0
+
 run  = True
 clock = pyg.time.Clock()
 
@@ -17,16 +19,14 @@ while run:
     for event in pyg.event.get():
         if event.type == pyg.QUIT:
             run  = False
-        elif event.type == pyg.MOUSEBUTTONDOWN:
-            st.buttons_click(pyg.mouse.get_pos())
-
-    #carga las misiones
-    #missions = msn.start( display )
 
     #carga la estacion espacial
-    station = st.start(display)
+    if the_number == 0:
+        the_number = st.start( display, event )
+    #Carga la pantalla de misiones
+    elif the_number == 1:
+        msn.start( display, event )
     
-
     pyg.display.flip()
     clock.tick( fps )
 pyg.quit

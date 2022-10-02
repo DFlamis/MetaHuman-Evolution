@@ -13,13 +13,22 @@ button_exit_coor = [700, 500]
 
 buttons = []
 
-def start( display ):
+def start( display, event ):
+    the_number = 0
     cargarEstacion( display, 'Background' , bakground_coor )
     cargarEstacion( display, 'Astronaut-10', astronut_coor )
     cargarBotones(display, 'button_play', button_play_coor )
     cargarBotones(display, 'button_habilities', button_habilities_coor )
     cargarBotones(display, 'garden', button_garden_coor )
     cargarBotones(display, 'button_exit', button_exit_coor )
+
+    if event.type == pygame.MOUSEBUTTONDOWN:
+        x, y = pygame.mouse.get_pos()
+        for button in buttons:
+            if button[1].collidepoint(x, y):
+                the_number = 1
+
+    return the_number
     
 def cargarEstacion(display, image_name, coor ):
     fondo = img.setImage(coor, img.root_path + sub_path + image_name +'.png')
@@ -30,8 +39,3 @@ def cargarBotones(display, image_name, coor ):
     button = img.setImage(coor, img.root_path + sub_path + image_name +'.png')
     buttons.append(button)
     display.blit( button[0], button[1] )
-
-def buttons_click( coor ):
-    for button in buttons:
-        if button[1].collidepoint(coor):
-            print(button[0])
