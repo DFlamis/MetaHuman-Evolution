@@ -18,8 +18,6 @@ while run:
     for event in pyg.event.get():
         if event.type == pyg.QUIT:
             run  = False
-        elif event.type == pyg.MOUSEBUTTONDOWN:
-            st.buttons_click(display, event, pyg.mouse.get_pos())
 
     #carga la estacion espacial
     if the_number == 0:
