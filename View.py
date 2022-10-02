@@ -1,6 +1,7 @@
 import pygame as pyg
 import station as st
 import Missions as msn
+import Exploration as exp
 
 display_size = 1280, 720
 display = pyg.display.set_mode( display_size )
@@ -30,6 +31,10 @@ while run:
         print("boton2")
     elif the_number == 3:
         print("boton3")
+    #Carga la Exploracion
+    elif the_number == 5: 
+        key = pyg.key.get_pressed()
+        exp.start( display, key )
 
     print(the_number)
 

@@ -22,8 +22,6 @@ def start( display, event ):
     the_number = 1
     mission_background( display, 'Background' )
     mission_background( display, 'Screen' )
-    # mission_background( display, 'Left' )
-    # mission_background( display, 'Right' )
 
     set_text( display, conditions_test )
 
@@ -36,7 +34,7 @@ def start( display, event ):
         if idk[1].collidepoint(x, y):
             print('DERECHA')
         if idk[2].collidepoint(x, y): #Start
-            print('INICIAR')
+            the_number = 5
         if idk[3].collidepoint(x, y):
             the_number = 0
     
@@ -77,7 +75,7 @@ def set_buttons( display, image_name1, image_name2, image_name3, image_name4 ):
     left = img.setImage( [220,330], img.root_path + sub_path + image_name1 +'.png' )
     right = img.setImage( [1030,330], img.root_path + sub_path + image_name2 +'.png' )
     start = img.setImage( [580,480], img.root_path + sub_path + image_name3 +'.png' )
-    menu = img.setImage( [30,30], img.root_path + sub_path + image_name4 +'.png' ) #280,530
+    menu = img.setImage( [30,650], img.root_path + sub_path + image_name4 +'.png' ) #280,530
     
     display.blit( left[0], left[1] )
     display.blit( right[0], right[1] )
