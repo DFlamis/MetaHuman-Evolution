@@ -28,8 +28,7 @@ while run:
         the_number = msn.start( display, event )
     #Carga la pantalla 
     elif the_number == 2:
-        ab.start( display, event)
-
+        the_number = ab.start( display, event)
     elif the_number == 3:
         print("boton3")
 

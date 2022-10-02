@@ -1,10 +1,16 @@
 from email.mime import base
+from re import A
 import Images as img
 import pygame as pyg
 
 sub_path = "Abilities/"
 
-def start(display, evento):
+tarjetas = []
+retroceder = []
+
+def start(display, event):
+
+    the_number = 2
 
     base_x = 120
     base_y = 10
@@ -13,6 +19,8 @@ def start(display, evento):
     aumento_y = 360
     
     bakground_coor = [0,0]
+    mainmenu_coor = [30,645]
+
     primera_coor = [base_x, base_y]
     segunda_coor = [base_x + aumento_x, base_y]
     tercera_coor = [base_x + (aumento_x *2), base_y]
@@ -36,8 +44,34 @@ def start(display, evento):
     cargarElementos( display, 'locked', octava_coor )
     cargarElementos( display, 'locked', novena_coor )
     cargarElementos( display, 'locked', decima_coor )
+
+    cargarElementos( display, 'MainMenu', mainmenu_coor )
+
+    if event.type == pyg.MOUSEBUTTONDOWN:
+        x , y = pyg.mouse.get_pos()
+        for j in range(len(tarjetas)):
+            if retroceder[0][1].collidepoint(x, y):
+                the_number = 0
+                return the_number
+
+            if tarjetas[j][1].collidepoint(x, y):
+                if j == 0:
+                    cargarElementos( display, 'tarjetaInfo1', primera_coor )
+                elif j == 1:
+                    cargarElementos( display, 'tarjetaInfo2', segunda_coor )
+                elif j == 2:
+                    cargarElementos( display, 'tarjetaInfo3', tercera_coor )
+
+    return the_number
+            
     
 def cargarElementos(display, image_name, coor ):
     elemento = img.setImage(coor, img.root_path + sub_path + image_name +'.png')
+
+    if (image_name != "locked") and (image_name != 'Background') and (image_name != 'MainMenu'):
+        tarjetas.append(elemento)
+    elif(image_name == 'MainMenu'):
+        retroceder.append(elemento)
+    
     pyg.display.set_caption("Estacion Espacial")
     display.blit( elemento[0], elemento[1] )
