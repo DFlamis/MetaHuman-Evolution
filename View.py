@@ -1,6 +1,6 @@
 import imp
 import pygame as pyg
-import Station as st
+import station as st
 import Missions as msn
 import Exploration as exp
 import Abilty as ab
