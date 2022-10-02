@@ -24,7 +24,7 @@ while run:
         the_number = st.start( display, event )
     #Carga la pantalla de misiones
     elif the_number == 1:
-        msn.start( display, event )
+        the_number = msn.start( display, event )
     #Carga la pantalla 
     elif the_number == 2:
         print("boton2")

@@ -19,6 +19,7 @@ font2 = pyg.font.SysFont(font_text,22) #Subtitulo
 font3 = pyg.font.SysFont(font_text,20) #Texto
 
 def start( display, event ):
+    the_number = 1
     mission_background( display, 'Background' )
     mission_background( display, 'Screen' )
     # mission_background( display, 'Left' )
@@ -26,7 +27,7 @@ def start( display, event ):
 
     set_text( display, conditions_test )
 
-    idk = set_buttons( display, 'Left', 'Right' )
+    idk = set_buttons( display, 'Left', 'Right', 'Start', 'MainMenu' )
 
     if event.type == pyg.MOUSEBUTTONDOWN:
         x , y = pyg.mouse.get_pos()
@@ -34,6 +35,12 @@ def start( display, event ):
             print('IZQUIERDA')
         if idk[1].collidepoint(x, y):
             print('DERECHA')
+        if idk[2].collidepoint(x, y): #Start
+            print('INICIAR')
+        if idk[3].collidepoint(x, y):
+            the_number = 0
+    
+    return the_number
 
 def mission_background( display, image_name ):
     Background_path = img.root_path + sub_path + image_name +'.png'
@@ -66,11 +73,15 @@ def set_text( display, conditions ):
         display.blit( temp_condition_screen, (text_w + 50, text_h + space) )
         space += 30
 
-def set_buttons( display, image_name1, image_name2 ):
+def set_buttons( display, image_name1, image_name2, image_name3, image_name4 ):
     left = img.setImage( [220,330], img.root_path + sub_path + image_name1 +'.png' )
     right = img.setImage( [1030,330], img.root_path + sub_path + image_name2 +'.png' )
+    start = img.setImage( [580,480], img.root_path + sub_path + image_name3 +'.png' )
+    menu = img.setImage( [30,30], img.root_path + sub_path + image_name4 +'.png' ) #280,530
     
     display.blit( left[0], left[1] )
     display.blit( right[0], right[1] )
+    display.blit( start[0], start[1] )
+    display.blit( menu[0], menu[1] )
     
-    return left[1], right[1]
+    return left[1], right[1], start[1], menu[1]
