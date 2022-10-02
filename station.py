@@ -5,7 +5,7 @@ import Missions as msn
 sub_path = "Station/"
 
 bakground_coor = [0,0]
-astronut_coor = [0,0]
+astronut_coor = [100,0]
 
 button_play_coor = [700, 20]
 button_habilities_coor = [700, 180 ]
@@ -17,10 +17,10 @@ buttons = []
 def start( display, event ):
     the_number = 0
     cargarEstacion( display, 'Background' , bakground_coor )
-    cargarEstacion( display, 'Astronaut-10', astronut_coor )
+    cargarEstacion( display, 'Astronaut', astronut_coor )
     cargarBotones(display, 'button_play', button_play_coor )
     cargarBotones(display, 'button_abilities', button_habilities_coor )
-    cargarBotones(display, 'garden', button_garden_coor )
+    cargarBotones(display, 'button_garden', button_garden_coor )
     cargarBotones(display, 'button_exit', button_exit_coor )
 
     if event.type == pygame.MOUSEBUTTONDOWN:
