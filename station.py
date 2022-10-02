@@ -25,10 +25,21 @@ def start( display, event ):
 
     if event.type == pygame.MOUSEBUTTONDOWN:
         x, y = pygame.mouse.get_pos()
-        for button in buttons:
-            if button[1].collidepoint(x, y):
-                the_number = 1
-
+        for i in range(len(buttons)):
+            if buttons[i][1].collidepoint(x, y):
+                if i == 0:
+                    the_number = 1
+                    print("boton 1")
+                elif i == 1:
+                    the_number = 2
+                    print("boton 2")
+                elif i == 2:
+                    the_number = 3
+                    print("boton 3")
+                elif i == 3:
+                    the_number = 4
+                    print("boton 4")
+    
     return the_number
     
 def cargarEstacion(display, image_name, coor ):
@@ -41,8 +52,3 @@ def cargarBotones(display, image_name, coor ):
     buttons.append(button)
     display.blit( button[0], button[1] )
 
-def buttons_click( display, event, coor ):
-    for button in buttons:
-        if button[1].collidepoint(coor):
-            print("hola")
-            msn.start(display, event)

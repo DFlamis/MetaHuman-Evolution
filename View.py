@@ -16,7 +16,7 @@ clock = pyg.time.Clock()
 
 while run:
     for event in pyg.event.get():
-        if event.type == pyg.QUIT:
+        if event.type == pyg.QUIT or the_number == 4:
             run  = False
 
     #carga la estacion espacial
@@ -25,7 +25,14 @@ while run:
     #Carga la pantalla de misiones
     elif the_number == 1:
         msn.start( display, event )
-    
+    #Carga la pantalla 
+    elif the_number == 2:
+        print("boton2")
+    elif the_number == 3:
+        print("boton3")
+
+    print(the_number)
+
     pyg.display.flip()
     clock.tick( fps )
 pyg.quit
