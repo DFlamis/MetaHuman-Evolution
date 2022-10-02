@@ -1,5 +1,6 @@
 import pygame 
 import Images as img
+import Missions as msn
 
 sub_path = "Station/"
 
@@ -17,7 +18,7 @@ def start( display ):
     cargarEstacion( display, 'Background' , bakground_coor )
     cargarEstacion( display, 'Astronaut-10', astronut_coor )
     cargarBotones(display, 'button_play', button_play_coor )
-    cargarBotones(display, 'button_habilities', button_habilities_coor )
+    cargarBotones(display, 'button_abilities', button_habilities_coor )
     cargarBotones(display, 'garden', button_garden_coor )
     cargarBotones(display, 'button_exit', button_exit_coor )
     
@@ -31,7 +32,8 @@ def cargarBotones(display, image_name, coor ):
     buttons.append(button)
     display.blit( button[0], button[1] )
 
-def buttons_click( coor ):
+def buttons_click( display, event, coor ):
     for button in buttons:
         if button[1].collidepoint(coor):
-            print(button[0])
+            print("hola")
+            msn.start(display, event)
