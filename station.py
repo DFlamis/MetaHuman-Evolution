@@ -19,7 +19,7 @@ def start( display, event ):
     cargarEstacion( display, 'Astronaut', astronut_coor )
     cargarBotones(display, 'button_play', button_play_coor )
     cargarBotones(display, 'button_abilities', button_habilities_coor )
-    cargarBotones(display, 'button_garden', button_garden_coor )
+    cargarBotones(display, 'button_story', button_garden_coor )
     cargarBotones(display, 'button_exit', button_exit_coor )
 
     if event.type == pygame.MOUSEBUTTONDOWN:
